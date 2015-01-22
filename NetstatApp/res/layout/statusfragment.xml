@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+<TextView
+        android:id="@+id/proto_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/protoname"
+        android:textStyle="normal"
+   		android:textSize="12sp" />
+
+<TextView
+        android:id="@+id/proto_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+   		android:textSize="16sp" />
+
+<TextView
+        android:id="@+id/state_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statename"
+        android:textStyle="normal"
+   		android:textSize="12sp" />
+
+<TextView
+        android:id="@+id/state_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+   		android:textSize="16sp" />
+
+<TextView
+        android:id="@+id/appname_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/appname"
+        android:textStyle="normal"
+   		android:textSize="12sp" />
+
+<TextView
+        android:id="@+id/appname_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+   		android:textSize="16sp" />
+
+<TextView
+        android:id="@+id/src_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/srcip"
+        android:textStyle="normal"
+   		android:textSize="12sp" />
+
+<TextView
+        android:id="@+id/src_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+   		android:textSize="16sp" />
+
+<TextView
+        android:id="@+id/dst_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dstip"
+        android:textStyle="normal"
+   		android:textSize="12sp" />
+
+<TextView
+        android:id="@+id/dst_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+   		android:textSize="16sp" />
+    
+</LinearLayout>

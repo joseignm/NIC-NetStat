@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">Netstat NIC</string>
+    <string name="title_activity_main">Netstat NIC</string>
+    <string name="menu_settings">Opciones</string>
+    <string name="update">Actualizar</string>
+    <string name="protoname">Protocolo:</string>
+    <string name="statename">Estado:</string>
+    <string name="appname">Aplicación:</string>
+    <string name="srcip">IP:Puerto origen</string>
+    <string name="dstip">IP:Puerto destino</string>
+    <string name="title_activity_status">Detalles de la conexión</string>
+    
+    <string name="pick_account">Debes escoger una cuenta.</string>
+
+</resources>
