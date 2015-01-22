@@ -144,6 +144,7 @@ int raw gtm_analytics 0x7f040000
 int string accept 0x7f060002
 int string app_name 0x7f060023
 int string appname 0x7f060029
+int string auth_rejected 0x7f06002f
 int string common_android_wear_notification_needs_update_text 0x7f060009
 int string common_android_wear_update_text 0x7f060016
 int string common_android_wear_update_title 0x7f060014
@@ -177,7 +178,8 @@ int string create_calendar_title 0x7f060004
 int string decline 0x7f060003
 int string dstip 0x7f06002b
 int string menu_settings 0x7f060025
-int string pick_account 0x7f06002d
+int string no_net 0x7f06002d
+int string pick_account 0x7f060030
 int string protoname 0x7f060027
 int string srcip 0x7f06002a
 int string statename 0x7f060028
@@ -185,6 +187,7 @@ int string store_picture_message 0x7f060001
 int string store_picture_title 0x7f060000
 int string title_activity_main 0x7f060024
 int string title_activity_status 0x7f06002c
+int string unk_err 0x7f06002e
 int string update 0x7f060026
 int string wallet_buy_button_place_holder 0x7f060022
 int style AppTheme 0x7f050005

@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 	        case R.id.menu_update:
 	        	if(!isDeviceOnline()) {
-	        		Toast.makeText(this, "No hay conexión.", Toast.LENGTH_LONG).show();
+	        		Toast.makeText(this, getString(R.string.no_net), Toast.LENGTH_LONG).show();
 	        		return true;
 	        	}
 	        	getUsername();
@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 			} else if (resultCode == RESULT_CANCELED) {
 				// The account picker dialog closed without selecting an account.
 				// Notify users that they must pick an account to proceed.
-				Toast.makeText(this, R.string.pick_account, Toast.LENGTH_LONG).show();
+				Toast.makeText(this, getString(R.string.pick_account), Toast.LENGTH_LONG).show();
 			}
 		} else if ((requestCode == REQUEST_CODE_RECOVER_FROM_AUTH_ERROR ||
 				requestCode == REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR)
@@ -101,7 +101,7 @@ public class MainActivity extends Activity {
 	
 	private void handleAuthorizeResult(int resultCode, Intent data) {
 		if (data == null) {
-			show("Error desconocido, prueba de nuevo.");
+			show(getString(R.string.unk_err));
 			return;
 		}
 		if (resultCode == RESULT_OK) {
@@ -110,10 +110,10 @@ public class MainActivity extends Activity {
 			return;
 		}
 		if (resultCode == RESULT_CANCELED) {
-			show("Se ha rechazado la autorización.");
+			show(getString(R.string.auth_rejected));
 			return;
 		}
-		show("Error desconocido, prueba de nuevo.");
+		show(getString(R.string.unk_err));
     }
 	
 	private void show(String msg) {
