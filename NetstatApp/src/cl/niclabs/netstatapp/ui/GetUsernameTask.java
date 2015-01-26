@@ -33,7 +33,6 @@ public class GetUsernameTask extends AsyncTask<Void, Void, Void>{
 		try {
 			String token = fetchToken();
 			if(token != null) {
-				Log.d("NSAPP", "token = "+token);
 				URL url = new URL("http://172.30.65.17/query.php");
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				StringBuilder sb = new StringBuilder(1200);
@@ -55,7 +54,6 @@ public class GetUsernameTask extends AsyncTask<Void, Void, Void>{
 					// Server's output
 					Scanner in = new Scanner(conn.getInputStream());
 					while(in.hasNextLine()) {
-						Log.d("NSAPP", in.nextLine());
 					}
 					in.close();
 				} finally {

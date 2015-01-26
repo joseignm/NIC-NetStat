@@ -67,8 +67,22 @@ public class NetStat {
 	}
 	
 	private final boolean isValidAddress(String address) {
-		if(address.equals("-1.-1-1.-1") || address.equals("-2.-2.-2.-2")
-				|| address.equals("127.0.0.1") || address.equals("0.0.0.0"))
+		if(address.equals("-1.-1.-1.-1") || address.equals("-2.-2.-2.-2"))
+			return false;
+		if(address.equals("127.0.0.1") || address.equals("0.0.0.0"))
+			return false;
+		return true;
+	}
+	
+	private final boolean isRemoteAddress(String address) {
+		if(address.equals("-1.-1.-1.-1") || address.equals("-2.-2.-2.-2"))
+			return false;
+		if(address.equals("127.0.0.1") || address.equals("0.0.0.0"))
+			return false;
+		if(address.startsWith("192.168.") || address.startsWith("10."))
+			return false;
+		String [] numbers = address.split("\\.");
+		if(numbers[0].equals("172") && Integer.parseInt(numbers[1])>=16 && Integer.parseInt(numbers[1])<=31)
 			return false;
 		return true;
 	}
@@ -114,16 +128,19 @@ public class NetStat {
 				connection.dst = getAddress6(dst[0]);
 				break;
 			}
-			if(!isValidAddress(connection.src) || !isValidAddress(connection.dst))
+			if(!isValidAddress(connection.src) || !isRemoteAddress(connection.dst)) {
 				continue;
-			
+			}
 			connection.spt = String.valueOf(getInt16(src[1]));
 			connection.dpt = String.valueOf(getInt16(dst[1]));
-			
 			PackageManager pm = cnt.getPackageManager();
-			String appname = pm.getNameForUid(Integer.parseInt(fields[7]));
-			if(appname == null || appname.trim().equals(""))
-				appname = "UNKNOWN";
+			int uid = Integer.parseInt(fields[7]);
+			String appname = pm.getNameForUid(uid);
+			if(uid==0) appname = "android.uid.root:0";
+			if(appname == null || appname.trim().equals("")) {
+				Log.d("NSAPP", "App ??? - UID "+fields[7]);
+				appname = "Unknown";
+			}
 			connection.app = appname;
 			
 			connection.state = getState(fields[3]);
@@ -134,7 +151,6 @@ public class NetStat {
 	}
 
 	public ArrayList<Connection> getConnections(MainActivity cnt) {
-		Log.d("NSAPP", "Getting connections...");
 		connections.clear();
 		try {
 			getConnectionByProto(Proto.TCP, cnt);
@@ -144,7 +160,6 @@ public class NetStat {
 		} catch(Exception e) {
 			
 		}
-		Log.d("NSAPP", "Getting connections: Done!");
 		return connections;
 	}
 	

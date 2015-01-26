@@ -121,7 +121,6 @@ public class MainActivity extends Activity {
 	}
 
 	private void getUsername() {
-		Log.d("NSAPP", "user_email = "+user_email);
 		if (user_email == null) {
 			pickUserAccount();
 		} else {
